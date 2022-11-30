@@ -34,5 +34,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "An agile project management tool that helps visualize work been done.",
+  "main": "index.js",
+  "devDependencies": {},
+  "keywords": ["Agile","software Development","project management","visualise Work"],
+  "author": "Geoffrey Odari",
+  "license": "MIT"
 }
