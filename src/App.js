@@ -1,5 +1,8 @@
-import AddColumn from "./components/AddColumn";
-import Column from "./components/Column";
+import {Provider} from 'react-redux'
+import ColumnContainer from './components/ColumnContainer';
+
+import store from "./redux/store"
+
 
 function App() {
  let data =[
@@ -15,10 +18,10 @@ function App() {
           ]
 
   return (
-    <div className="container-fluid row bg-light vh-100">
-      {data.map(col=><Column data={col} key={col.id}/>)}
-      <AddColumn/>
-    </div>
+    
+      <Provider store={store}>
+        <ColumnContainer/>
+      </Provider>
   );
 }
 

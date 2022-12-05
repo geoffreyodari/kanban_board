@@ -1,6 +1,8 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
+import {connect} from 'react-redux'
+import { addColumn } from '../redux';
 
 function AddColumnForm(props) {
     
@@ -15,7 +17,7 @@ function AddColumnForm(props) {
                                                 </Button>
                                         </div>
                                         <div className="col-6 text-end">
-                                                <Button variant="success" size="sm" onClick={()=>props.setShow(false)}>
+                                                <Button variant="success" size="sm" onClick={props.addColumn }>
                                                         Add Column
                                                 </Button>
                                         </div>
@@ -26,4 +28,17 @@ function AddColumnForm(props) {
             )
     }
 
-export default AddColumnForm;
+    const mapStateToProps = state=>{
+        return {
+            state
+        }
+    }
+    
+    const mapDispatchToProps = dispatch=>{
+        return{
+            addColumn:()=> dispatch(addColumn())
+        }
+    }
+    export default connect(mapStateToProps,mapDispatchToProps)(AddColumnForm)
+    
+

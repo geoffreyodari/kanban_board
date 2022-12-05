@@ -1,6 +1,8 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
+import {connect} from 'react-redux'
+import { addCard } from '../redux';
 
 function AddCardForm(props) {
     
@@ -15,7 +17,7 @@ function AddCardForm(props) {
                                                 </Button>
                                         </div>
                                         <div className="col-6 text-end">
-                                                <Button variant="success" size="sm" onClick={()=>props.setShow(false)}>
+                                                <Button variant="success" size="sm" onClick={props.addCard}>
                                                         Add 
                                                 </Button>
                                         </div>
@@ -26,4 +28,18 @@ function AddCardForm(props) {
             )
     }
 
-export default AddCardForm;
+
+
+    const mapStateToProps = state=>{
+        return {
+            state
+        }
+    }
+    
+    const mapDispatchToProps = dispatch=>{
+        return{
+            addCard:()=> dispatch(addCard())
+        }
+    }
+
+export default connect(mapStateToProps,mapDispatchToProps)(AddCardForm)

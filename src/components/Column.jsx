@@ -4,17 +4,17 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import AddCard from './AddCard'
 
-function Column(columns) {
+function Column(props) {
   return (
     <div className="col col-3">
       <Card >
         <Card.Body>
-          <Card.Title>{columns.data.name}<DropDown/></Card.Title>
+          <Card.Title>{props.data.name}<DropDown/></Card.Title>
           <Card.Text>
           </Card.Text>
         </Card.Body>
         <ListGroup className="list-group-flush">
-          {columns.data.tasks.map(row=><ListGroup.Item key={row.id}>{row.name}</ListGroup.Item>)}
+          {props.data.tasks.map((row,key)=><ListGroup.Item key={key}>{row.name}</ListGroup.Item>)}
         </ListGroup>
         <Card.Body>
           <AddCard/>
