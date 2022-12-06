@@ -5,8 +5,9 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import AddCard from './AddCard'
 
 function Column(props) {
+  console.log(props.columnid)
   return (
-    <div className="col col-3">
+    <div className="col col-3" key={props.key}>
       <Card >
         <Card.Body>
           <Card.Title>{props.data.name}<DropDown/></Card.Title>
@@ -14,11 +15,11 @@ function Column(props) {
           </Card.Text>
         </Card.Body>
         <ListGroup className="list-group-flush">
-          {props.data.tasks.map((row,key)=><ListGroup.Item key={key}>{row.name}</ListGroup.Item>)}
+          {props.data.tasks.map((item,index)=><ListGroup.Item key={index}>{item.name}</ListGroup.Item>)}
         </ListGroup>
         <Card.Body>
-          <AddCard/>
-        </Card.Body>
+          <AddCard column={props.key} key={props.key} columnid={props.columnid}/>
+        </Card.Body >
       </Card>
     </div>
   );
