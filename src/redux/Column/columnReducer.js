@@ -8,21 +8,14 @@ const columnReducer = (state=initialState,action)=>{
     switch(action.type){
         case ADD_COLUMN: return [
                                     ...state,
-                                    {
-                                        name:"to-do",
-                                        tasks:[{ id:1,name:"to use redux"},{ id:2,name:"to complete task tomorrow"}]
+                                    {   
+                                        name:action.payload,
+                                        tasks:[]
                                      }
                                 ]
 
-        case ADD_CARD: return [
-
-            {
-                ...state[0].task,
-                tasks: [...state[0].tasks,{ id:1,name:"to use redux"}]
-            },
-            ...state.slice(1)
-        ]
-
+        case ADD_CARD: return  [...state].map((row,key)=>key===action.payload.column?{...row,tasks:[...row.tasks,{name:action.payload.taskName}]}:row)    
+                                
         default: return state
     }
 
