@@ -1,9 +1,15 @@
+import {Provider} from 'react-redux'
+import ColumnContainer from './components/ColumnContainer';
+
+import store from "./redux/store"
+
 
 function App() {
+
   return (
-    <div className=" container-fluid bg-light vh-100">
-      Hello World
-    </div>
+      <Provider store={store}>
+        <ColumnContainer/>
+      </Provider>
   );
 }
 
