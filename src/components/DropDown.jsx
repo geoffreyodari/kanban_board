@@ -10,7 +10,7 @@ function dropDown() {
       <Dropdown.Menu>
         <Dropdown.Item as="button">Rename</Dropdown.Item>
         <Dropdown.Item as="button">Clear</Dropdown.Item>
-        <Dropdown.Item as="button">delete</Dropdown.Item>
+        <Dropdown.Item as="button">Delete</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   )
