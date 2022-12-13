@@ -2,12 +2,13 @@ import React from 'react';
 import DropDown from './DropDown'
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import shortid from 'shortid';
 import AddCard from './AddCard'
 
 function Column(props) {
-  console.log(props.columnid)
+  
   return (
-    <div className="col col-3" key={props.key}>
+    <div className="col col-3" key={props.data.id}>
       <Card >
         <Card.Body>
           <Card.Title>{props.data.name}<DropDown/></Card.Title>
@@ -15,10 +16,10 @@ function Column(props) {
           </Card.Text>
         </Card.Body>
         <ListGroup className="list-group-flush">
-          {props.data.tasks.map((item,index)=><ListGroup.Item key={index}>{item.name}</ListGroup.Item>)}
+          {props.data.tasks.map(item=><ListGroup.Item key={shortid.generate()}>{item.name}</ListGroup.Item>)}
         </ListGroup>
         <Card.Body>
-          <AddCard column={props.key} key={props.key} columnid={props.columnid}/>
+          <AddCard column={props.id} columnid={props.columnid}/>
         </Card.Body >
       </Card>
     </div>

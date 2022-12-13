@@ -9,13 +9,15 @@ const columnReducer = (state=initialState,action)=>{
         case ADD_COLUMN: return [
                                     ...state,
                                     {   
+                                        id:action.id,
                                         name:action.payload,
                                         tasks:[]
                                      }
                                 ]
 
         case ADD_CARD: return  [...state].map((row,key)=>key===action.payload.column?{...row,tasks:[...row.tasks,{name:action.payload.taskName}]}:row)    
-                                
+         
+        
         default: return state
     }
 
