@@ -1,15 +1,8 @@
-import Button from 'react-bootstrap/Button';
-
-
-function AddColumnButton(props) {
-
-                return (    
-                                <div className="d-grid gap-2">
-                                        <Button variant="success" size="lg" onClick={()=>props.setShow(true)}>
-                                                Add Column
-                                        </Button>
-                                </div> 
-                        )
-                }
-
+function AddColumnButton(){
+    return(
+            <div className="d-grid gap-2">
+                <button className="btn btn-kanban" type="button">Add Column</button>
+            </div>
+             )
+}
 export default AddColumnButton;

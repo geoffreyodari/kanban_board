@@ -1,15 +1,11 @@
-import {Provider} from 'react-redux'
-import ColumnContainer from './components/ColumnContainer';
-
-import store from "./redux/store"
-
+import ColumnFormContainer from "./components/ColumnFormContainer";
 
 function App() {
 
   return (
-      <Provider store={store}>
-        <ColumnContainer/>
-      </Provider>
+   <div className="container-fluid bg-light vh-100">
+      <ColumnFormContainer/>
+    </div>
   );
 }
 
