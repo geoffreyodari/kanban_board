@@ -14,9 +14,10 @@ const columnSlice =createSlice({
         hideEditTitleForm:(state)=>{state.columns=[...state.columns].map(column=>column ={...column,editTitle:false})},
         changeColumnTitle:(state,action)=>{state.columns=[...state.columns].map(column=>column ={...column,title:column.id===action.payload.id?action.payload.title:column.title,editTitle:false})},
         showAddTaskForm:(state,action)=>{state.columns=[...state.columns].map(column=>column ={...column,addTask:column.id===action.payload.id?true:false})},
-        hideAddTaskForm:(state)=>{state.columns=[...state.columns].map(column=>column ={...column,addTask:false})}
+        hideAddTaskForm:(state)=>{state.columns=[...state.columns].map(column=>column ={...column,addTask:false})},
+        addTask:(state,action)=>{state.columns=[...state.columns].map(column=>column ={...column,tasks:column.id===action.payload.id?[...column.tasks,{id:action.payload.taskId,value:action.payload.value}]:[...column.tasks],addTask:false})},
     }
 })
 
 export default columnSlice.reducer
-export const{ add , showEditTitleForm,hideEditTitleForm,changeColumnTitle, showAddTaskForm,hideAddTaskForm} = columnSlice.actions
+export const{ add , showEditTitleForm,hideEditTitleForm,changeColumnTitle, showAddTaskForm,hideAddTaskForm,addTask} = columnSlice.actions
