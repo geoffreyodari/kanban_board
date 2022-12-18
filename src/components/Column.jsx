@@ -1,5 +1,6 @@
 
 import AddTaskButton from "./AddTaskButton";
+import AddTaskForm from "./AddTaskForm";
 import ColumnTitle from "./ColumnTitle";
 import ColumnTitleForm from "./ColumnTitleForm";
 
@@ -11,7 +12,7 @@ function Column(props){
             <hr/>
 
             <hr/>
-            <AddTaskButton/>
+            {!props.addTask?<AddTaskButton key={props.id} {...props}/>:<AddTaskForm/>}
         </div>
     )
 }

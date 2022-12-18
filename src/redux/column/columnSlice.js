@@ -19,4 +19,4 @@ const columnSlice =createSlice({
 })
 
 export default columnSlice.reducer
-export const{ add , showEditTitleForm,hideEditTitleForm,changeColumnTitle} = columnSlice.actions
+export const{ add , showEditTitleForm,hideEditTitleForm,changeColumnTitle, showAddTaskForm,hideAddTaskForm} = columnSlice.actions
