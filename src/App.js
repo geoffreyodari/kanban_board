@@ -8,8 +8,7 @@ function App() {
 
   return (
    <div className="container-fluid bg-light vh-100">
-    {columns.columns.map(row=><Column key={row.id}/>)}
-    {console.log(columns.columns)}
+    {columns.columns.map(child=><Column key={child.id} {...child}/>)}
       <ColumnForm/>
     </div>
   );
