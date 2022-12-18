@@ -10,9 +10,10 @@ const columnSlice =createSlice({
     initialState,
     reducers:{
         add:(state,action)=>{state.columns=[...state.columns,{id:action.payload.id,title:action.payload.title,tasks:[],editTitle:false,addTask:false}]},
-        editTitle:(state,action)=>{state.columns=[...state.columns].map(column=>column ={...column,editTitle:column.id===action.payload.id?true:false})}
+        showEditTitleForm:(state,action)=>{state.columns=[...state.columns].map(column=>column ={...column,editTitle:column.id===action.payload.id?true:false})},
+        hideEditTitleForm:(state)=>{state.columns=[...state.columns].map(column=>column ={...column,editTitle:false})}
     }
 })
 
 export default columnSlice.reducer
-export const{ add , editTitle } = columnSlice.actions
+export const{ add , showEditTitleForm,hideEditTitleForm } = columnSlice.actions

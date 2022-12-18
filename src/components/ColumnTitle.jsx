@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { editTitle } from "../redux/column/columnSlice";
+import { showEditTitleForm } from "../redux/column/columnSlice";
 
 function ColumnTitle(props){
     console.log(props)
@@ -12,7 +12,7 @@ function ColumnTitle(props){
                             <button type="button" className="btn btn-kanban dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             </button>
                             <ul className="dropdown-menu">
-                            <li><button className="dropdown-item" onClick={()=>dispatch(editTitle(props))}>Rename</button></li>
+                            <li><button className="dropdown-item" onClick={()=>dispatch(showEditTitleForm (props))}>Rename</button></li>
                             <li><button className="dropdown-item">Delete</button></li>
                             </ul>
                         </div>
