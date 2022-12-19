@@ -4,8 +4,8 @@ import {showAddTaskForm } from "../redux/column/columnSlice";
 function AddTaskButton(props){
     const dispatch = useDispatch()
     return(
-        <div class="text-center">
-            <button class="btn btn-sm btn-kanban" onClick={()=>dispatch(showAddTaskForm({...props}))}>Add</button>
+        <div className="text-center">
+            <button className="btn btn-sm btn-kanban" onClick={()=>dispatch(showAddTaskForm({...props}))}>Add</button>
         </div>
     )
 }

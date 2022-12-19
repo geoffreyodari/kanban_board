@@ -12,6 +12,7 @@ function AddColumnForm(){
 
     const addColumn=()=>{
         dispatch(add({id:shortid.generate(),title:name}))
+        dispatch(hide())
     }
     return(
         <div className="card m-3 p-1 ">
