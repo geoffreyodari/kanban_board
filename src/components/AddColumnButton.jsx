@@ -1,15 +1,17 @@
-import Button from 'react-bootstrap/Button';
+import {useDispatch } from "react-redux";
+import {show} from '../redux/column/formSlice'
+
+function AddColumnButton(){
+    
+    const dispatch = useDispatch()
 
 
-function AddColumnButton(props) {
-
-                return (    
-                                <div className="d-grid gap-2">
-                                        <Button variant="success" size="lg" onClick={()=>props.setShow(true)}>
-                                                Add Column
-                                        </Button>
-                                </div> 
-                        )
-                }
-
+    return(
+        
+                <div className="card p-2  m-3">
+                    <button className="btn btn-kanban" type="button" onClick={()=>dispatch(show())}>Add Column</button>
+                </div>
+           
+             )
+}
 export default AddColumnButton;

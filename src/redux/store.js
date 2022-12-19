@@ -1,8 +1,12 @@
-import { legacy_createStore as createStore , applyMiddleware} from "redux";
-import columnReducer from "./Column/columnReducer";
-import {logger} from 'redux-logger'
+import { configureStore } from "@reduxjs/toolkit";
+import formReducer from './column/formSlice'
+import columnsReducer from './column/columnSlice'
 
-
-const store = createStore(columnReducer,applyMiddleware(logger));
+const store = configureStore({
+    reducer:{
+       form:formReducer,
+       columns:columnsReducer
+    } 
+})
 
 export default store;

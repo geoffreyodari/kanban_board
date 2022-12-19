@@ -1,15 +1,16 @@
-import {Provider} from 'react-redux'
-import ColumnContainer from './components/ColumnContainer';
-
-import store from "./redux/store"
+import ColumnForm from "./redux/column/ColumnForm";
+import { useSelector } from "react-redux";
+import Column from "./components/Column";
 
 
 function App() {
+  const columns = useSelector(state=>state.columns)
 
   return (
-      <Provider store={store}>
-        <ColumnContainer/>
-      </Provider>
+   <div className="container-fluid row  vh-100">
+    {columns.columns.map(child=><Column key={child.id} {...child}/>)}
+      <ColumnForm/>
+    </div>
   );
 }
 

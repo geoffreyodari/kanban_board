@@ -1,45 +1,38 @@
-import React from 'react';
-import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form'
-import {connect} from 'react-redux'
-import { addColumn } from '../redux';
+import {useDispatch } from "react-redux";
+import {hide} from '../redux/column/formSlice'
+import {add} from '../redux/column/columnSlice'
+import shortid from "shortid";
+import { useState } from "react";
 
-function AddColumnForm(props) {
-    const [title,setTitle] = useState("")
 
-    return (    <React.Fragment>
-                        <div className="bg-white pt-3" key="odari">
-                                <Form.Control size="sm" type="text" placeholder="Add Column" onChange={e=>setTitle(e.target.value)}/>
-                                <div className="row pt-1 pb-1">
-                                        <div className="col-6 text-left">
-                                                <Button  variant="danger" size="sm" onClick={()=>props.setShow(false)}>
-                                                        Cancel
-                                                </Button>
-                                        </div>
-                                        <div className="col-6 text-end">
-                                                <Button variant="success" size="sm" onClick={()=>props.addColumn(title)}>
-                                                        Add Column
-                                                </Button>
-                                        </div>
-                                </div>
-                        </div>     
-                </React.Fragment>   
 
-            )
+function AddColumnForm(){
+    const dispatch = useDispatch()
+    const [name,setName]= useState()
+
+    const addColumn=()=>{
+        dispatch(add({id:shortid.generate(),title:name}))
     }
+    return(
+        <div className="card m-3 p-1 ">
+                <div className="form-floating m-1">
+                    <input type="text" className="form-control" id="floatingInput" onChange={e=>setName(e.target.value)}/>
+                    <label htmlFor="floatingInput">Name</label>
+                </div>
+                <div>
+                    <div className="row">
+                        <div className="d-flex flex-row col-6">
+                            <button className="btn btn-sm btn-kanban" type="button" onClick={()=>dispatch(hide())}>Cancel</button>
+                        </div>
+                        <div className="d-flex flex-row-reverse col-6">
+                            <button className="btn btn-sm btn-kanban" type="button" onClick={()=>addColumn()}>Save</button>
+                        </div>  
+                    </div>
+                    
+                </div>
+        </div>
 
-    const mapStateToProps = state=>{
-        return {
-            state
-        }
-    }
-    
-    const mapDispatchToProps = dispatch=>{
-        return{
-            addColumn:(columnTitle)=> dispatch(addColumn(columnTitle))
-        }
-    }
-    export default connect(mapStateToProps,mapDispatchToProps)(AddColumnForm)
-    
+    )
+}
 
+export default AddColumnForm;
