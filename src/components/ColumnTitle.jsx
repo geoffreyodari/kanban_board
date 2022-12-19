@@ -5,8 +5,8 @@ function ColumnTitle(props){
     console.log(props)
     const dispatch = useDispatch()
     return(
-            <div className="row bg-white pt-1 m-0">
-                    <div className="col-8">{props.title}</div>
+            <div className="row  pt-1 m-1">
+                    <div className="col-8 mt-1">{props.title}</div>
                         <div className="col-4">
                         <div className="btn-group ">
                             <button type="button" className="btn btn-kanban dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">

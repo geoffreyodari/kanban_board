@@ -6,7 +6,7 @@ function ColumnForm(){
     const toggle = useSelector(state=>state.form.toggle)
     
     return(
-        <div className="column-inline m-3">
+        <div className="col-3">
           {!toggle?<AddColumnButton/>:<AddColumnForm/>}
         </div>
     )

@@ -14,7 +14,7 @@ function ColumnTitleForm(props){
         }
 
     return(<React.Fragment>
-            <div className="form-floating mb-3">
+            <div className="form-floating m-1">
                 <input type="text" className="form-control" id="floatingInput" onChange={e=>setTitle(e.target.value)}/>
                 <label htmlFor="floatingInput">Name</label>
             </div>

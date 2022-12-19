@@ -14,8 +14,8 @@ function AddColumnForm(){
         dispatch(add({id:shortid.generate(),title:name}))
     }
     return(
-        <div className="card p-1 ">
-                <div className="form-floating mb-3">
+        <div className="card m-3 p-1 ">
+                <div className="form-floating m-1">
                     <input type="text" className="form-control" id="floatingInput" onChange={e=>setName(e.target.value)}/>
                     <label htmlFor="floatingInput">Name</label>
                 </div>
@@ -30,7 +30,7 @@ function AddColumnForm(){
                     </div>
                     
                 </div>
-            </div>
+        </div>
 
     )
 }

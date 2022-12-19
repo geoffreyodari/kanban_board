@@ -7,7 +7,7 @@ function App() {
   const columns = useSelector(state=>state.columns)
 
   return (
-   <div className="container-fluid bg-light vh-100">
+   <div className="container-fluid row  vh-100">
     {columns.columns.map(child=><Column key={child.id} {...child}/>)}
       <ColumnForm/>
     </div>

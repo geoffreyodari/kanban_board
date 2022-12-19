@@ -13,8 +13,8 @@ function AddTaskForm(props){
     }
 
     return(
-        <div className="text-center">
-            <div className="form-floating mb-3">
+        <div className="text-center m-1">
+            <div className="form-floating m-1">
                 <input type="text" class="form-control" id="floatingInput" onChange={e=>setTaskName(e.target.value)}/>
                 <label htmlFor="floatingInput">Name</label>
             </div>
