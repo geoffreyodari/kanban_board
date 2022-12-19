@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
 import { showEditTitleForm } from "../redux/column/columnSlice";
+import { deleteColumn} from "../redux/column/columnSlice";
 
 function ColumnTitle(props){
-    console.log(props)
     const dispatch = useDispatch()
     return(
             <div className="row  pt-1 m-1">
@@ -13,7 +13,7 @@ function ColumnTitle(props){
                             </button>
                             <ul className="dropdown-menu">
                             <li><button className="dropdown-item" onClick={()=>dispatch(showEditTitleForm (props))}>Rename</button></li>
-                            <li><button className="dropdown-item">Delete</button></li>
+                            <li><button className="dropdown-item" onClick={()=>dispatch(deleteColumn(props))}>Delete</button></li>
                             </ul>
                         </div>
                     </div>
